@@ -27,6 +27,9 @@ except:
 gpu_name = pynvml.nvmlDeviceGetName(pynvml.nvmlDeviceGetHandleByIndex(0))
 rapids_version = "24.4.*"
 
+if type(gpu_name)!='str':
+  gpu_name = base64encode(gpu_name)
+  print(gpu_name)
 if ('P' not in gpu_name):
   print('***********************************************************************')
   print('Woo! Your instance has a '+ str(gpu_name)+' GPU!')
